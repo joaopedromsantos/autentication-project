@@ -13,6 +13,7 @@ app.post("/login", async (req, res) => {
   try {
     const token = await exchangeCodeForAccessToken(req.body.code);
     const user = await fetchUser(token);
+    res.send(user)
   } catch(err) {
     console.log("err", err.response.data);
     res.sendStatus(500);

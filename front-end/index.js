@@ -24,7 +24,6 @@ window.onload = async () => {
     const { code } = qs.parseUrl(window.location.href).query;
 
     if (code) {
-        console.log('entrou')
         try {
             const response = await axios.post(`${process.env.BACK_END_URL}/login`, { code });
             const user = response.data;
@@ -32,6 +31,7 @@ window.onload = async () => {
             console.log(user)
         } catch (error) {
             alert('Ocorreu um erro com o Back-End')
+            console.log(error)
         }
     }
 }
